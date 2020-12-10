@@ -3,10 +3,39 @@
 **REF: https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
 **/
 #include <bits/stdc++.h>
+#include <memory>
+#include <iostream>
+#include <chrono>
+
 using namespace std;
 //Numero de vertices
 #define V 4
 
+//utilizando como benchmark para avaliar o desempenho
+class Timer{
+public:
+    Timer(){
+        m_StartTimepoint = std::chrono::high_resolution_clock::now();
+    }
+    ~Timer(){
+        Stop();
+    }
+
+    void Stop(){
+        auto endTimepoint = std::chrono::high_resolution_clock::now();
+
+        auto start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch().count();
+        auto end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
+        auto duration = end - start;
+        double ms = duration * 0.001;
+
+        std::cout << duration << "us (" << ms << "ms)\n";
+    }
+private:
+    std::chrono::time_point <std::chrono::high_resolution_clock> m_StartTimepoint;
+};
+
+//Algoritmo de caixeiro viajante
 int TSP(int grafo[][V], int s){
     // armazenar todos os vertices alem do vertice de origem
     vector<int> vertice;
@@ -45,6 +74,10 @@ int main(){
                        { 15, 35, 0, 30 },
                        { 20, 25, 30, 0 } };
     int s = 0;
-    cout << "Custo minimo = " << TSP(grafo, s) << endl;
-    return 0;
+    {
+        Timer timer;
+        cout << "Custo minimo = " << TSP(grafo, s) << endl;
+
+    }
+        return 0;
 }
