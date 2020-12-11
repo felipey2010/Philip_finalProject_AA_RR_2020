@@ -7,3 +7,5 @@ O trabalho final envolve os ítens abaixo
 maximização do número de passageiros e minimização do tempo da rota.
 * Pesquisa e adotação de um benchmark de grafos para uma avaliação experimental; e
 * Apresentação de uma análise sobre os resultados encontrados com os algoritmos.
+
+* Apresentação do trabalho se encontrar [aqui](https://docs.google.com/presentation/d/1wQOJoEmBcQpzozKtsx348o1BKIMrLjkcL9ktljpiaEY/edit?usp=sharing)
